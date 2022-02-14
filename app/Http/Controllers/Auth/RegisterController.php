@@ -84,7 +84,6 @@ return redirect()->back()->with(session()->flash('alert-danger', 'Something went
 }
 
 
-
 public function verifyuser(Request $request){
     $verification_code = \Illuminate\Support\Facades\Request::get('code');
     $user = User::where(['verification_code' => $verification_code])->first();
@@ -96,6 +95,4 @@ public function verifyuser(Request $request){
 
     return redirect()->route('login')->with(session()->flash('alert-danger', 'Invalid verification code!'));
 }
-
-
 }
